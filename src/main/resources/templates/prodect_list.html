@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmls:th="http://www.thymeleaf.org">
+<head>
+<title>
+list of categories
+</title>
+<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+</head>
+<body>
+<div class="container text-center" >
+<div>
+
+<h1>product list</h1></div>
+<div>
+
+<table class="table table-bordered">
+<thead class="table-dark">
+<td>Id</td>
+<td>Name</ttd>
+<td>price</td>
+<td>category</td>
+<td>update</td>
+
+</theadv>
+<tbody>
+<th:block th:each="product : ${listProducts}" >
+<tr>
+<td> [[${product.id}]]</td>
+<td>[[${product.name}]]</td>
+<td>[[${product.price}]]</td>
+<td>[[${product.category.name}]]</td>
+<td>
+<a th:href="@{'/products/edit/'+${product.id}}">Edit</a>
+&nbsp;
+<a th:href="@{'/products/delete/'+${product.id}}">delete</a>
+</td>
+
+</tr>
+
+</th:block >
+</tbody>
+</table >
+</div>
+
+
+</div>
+
+</body>
+</html>
